@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --hot index.ts",
+    "db:codegen": "bun run kysely-codegen --url 'postgres://postgres:postgres@localhost:5432/postgres' --out-file ./db/types.ts --include-pattern public.*"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.10.2",
+    "bun-types": "latest",
+    "kysely-codegen": "^0.10.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@hono/trpc-server": "^0.1.0",
+    "@trpc/client": "^10.38.3",
+    "@trpc/server": "^10.38.5",
+    "graphile-migrate": "^1.4.1",
+    "graphile-worker": "^0.13.0",
+    "hono": "^3.7.3",
+    "kysely": "^0.26.3",
+    "pg": "^8.11.3",
+    "zod": "^3.22.2"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "bprp-2023-starter",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

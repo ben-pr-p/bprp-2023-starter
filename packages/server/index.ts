@@ -2,6 +2,7 @@ import { Hono } from "hono";
 import { trpcServer } from "@hono/trpc-server"; // Deno 'npm:@hono/trpc-server'
 import { appRouter, AppRouter } from "./router";
 import { migrateWatch } from "./db/migrate";
+import { cors } from "hono/cors";
 import { Server } from "bun";
 import { run } from "graphile-worker";
 import { taskList } from "./tasks";
@@ -13,8 +14,10 @@ if (process.env.NODE_ENV === "development") {
 
 const app = new Hono<{ Bindings: { server: Server } }>();
 
+app.use("*", cors());
+
 app.get("/health", (c) => {
-  return c.json({ status: "ok2" });
+  return c.json({ status: "ok" });
 });
 
 app.use(
